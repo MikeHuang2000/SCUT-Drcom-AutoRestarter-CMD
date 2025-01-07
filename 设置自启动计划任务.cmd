@@ -28,9 +28,8 @@ set "TASK_NAME=autodrcomstart"
 ::schtasks /Create /TN "%TASK_NAME%" /TR """"%SCRIPT_PATH%"""" /SC ONLOGON /RL HIGHEST /F
 
 ::设置计划任务
-schtasks /Create /TN "%TASK_NAME%" /TR "cmd /c """start """""" /min """%SCRIPT_PATH%""""""" /SC ONSTART /RL HIGHEST /F
+schtasks /Create /TN "%TASK_NAME%" /TR "cmd /c """start """""" /min """%SCRIPT_PATH%""""""" /SC ONLOGON /RL HIGHEST /F
 
-:: 检查任务是否已创建
 if %errorlevel%==0 (
     echo Task "%TASK_NAME%" created successfully.
 ) else (
